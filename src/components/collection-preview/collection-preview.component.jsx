@@ -18,7 +18,7 @@ const CollectionPreview = ({ title, items }) => (
 
 CollectionPreview.propTypes = {
   title: PropTypes.string,
-  items: PropTypes.object
+  items: PropTypes.array
 };
 
 export default CollectionPreview;
