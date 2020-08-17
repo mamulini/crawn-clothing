@@ -22,7 +22,7 @@ class Register extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
-      alert("Password doesn't match");
+      alert("Passwords don't match");
       return;
     }
 
@@ -63,7 +63,7 @@ class Register extends React.Component {
             name="displayName"
             value={displayName}
             onChange={this.handleChange}
-            label="Display name"
+            label="Display Name"
             required
           />
           <FormInput
