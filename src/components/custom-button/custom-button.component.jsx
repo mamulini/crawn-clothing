@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './custom-button.scss';
 
-const CustomButton = ({ children, isGoggleSignIn, ...otherProps }) => (
+const CustomButton = ({ children, isGoggleSignIn, inverted, ...otherProps }) => (
   <button
-    className={`${isGoggleSignIn ? 'google-sign-in' : ''} custom-button`}
+    className={`${inverted ? 'inverted' : ''} ${
+      isGoggleSignIn ? 'google-sign-in' : ''
+    } custom-button`}
     {...otherProps}
   >
     {children}
@@ -13,7 +15,8 @@ const CustomButton = ({ children, isGoggleSignIn, ...otherProps }) => (
 
 CustomButton.propTypes = {
   children: PropTypes.string,
-  isGoggleSignIn: PropTypes.bool
+  isGoggleSignIn: PropTypes.bool,
+  inverted: PropTypes.bool
 };
 
 export default CustomButton;
