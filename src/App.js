@@ -27,11 +27,9 @@ class App extends React.Component {
             id: snapshot.id,
             ...snapshot.data()
           });
-          console.log('2');
           console.log(this.props.currentUser);
         });
       }
-      console.log('1');
       setCurrentUser(userAuth);
     });
   }
@@ -50,13 +48,7 @@ class App extends React.Component {
           <Route
             exact
             path="/signin"
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to="/" />
-              ) : (
-                  <SigninAndRegister />
-                )
-            }
+            render={() => (this.props.currentUser ? <Redirect to="/" /> : <SigninAndRegister />)}
           />
         </Switch>
       </div>
