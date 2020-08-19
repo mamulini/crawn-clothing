@@ -1,8 +1,8 @@
 import React from 'react';
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
+import FormInput from '../form-input/form-input';
+import CustomButton from '../custom-button/custom-button';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-import './register.scss';
+import './register.styles.scss';
 
 class Register extends React.Component {
   constructor() {
@@ -27,10 +27,7 @@ class Register extends React.Component {
     }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
       await createUserProfileDocument(user, { displayName });
 

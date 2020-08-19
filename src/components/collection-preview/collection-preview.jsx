@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CollectionItem from '../collection-item/collection-item.component';
-import './collection-preview.scss';
+import CollectionItem from '../collection-item/collection-item';
+import './collection-preview.styles.scss';
 
 const CollectionPreview = ({ title, items }) => (
   <div className="collection-preview">
