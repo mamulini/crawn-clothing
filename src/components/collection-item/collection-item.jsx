@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import './collection-item.styles.scss';
 
 import CustomButton from '../custom-button/custom-button';
-import { addItem } from '../../redux/cart/cart.actions';
+import { addItemToCart } from '../../redux/cart/cart.actions';
 
-const CollectionItem = ({ item, addItem }) => {
+const CollectionItem = ({ item, addItemToCart }) => {
   const { name, price, imageUrl } = item;
 
   return (
@@ -16,7 +16,7 @@ const CollectionItem = ({ item, addItem }) => {
         <span className="name">{name}</span>
         <span className="price">${price}</span>
       </div>
-      <CustomButton onClick={() => addItem(item)} inverted>
+      <CustomButton onClick={() => addItemToCart(item)} inverted>
         Add to cart
       </CustomButton>
     </div>
@@ -29,11 +29,11 @@ CollectionItem.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   imageUrl: PropTypes.string,
-  addItem: PropTypes.func
+  addItemToCart: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+  addItemToCart: item => dispatch(addItemToCart(item))
 });
 
 export default connect(null, mapDispatchToProps)(CollectionItem);
