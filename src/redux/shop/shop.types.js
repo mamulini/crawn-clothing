@@ -1,0 +1,4 @@
+export const shopActionTypes = {
+  UPDATE_COLLECTIONS: 'UPDATE_COLLECTIONS',
+  LOADING_HANDLER: 'LOADING_HANDLER'
+};

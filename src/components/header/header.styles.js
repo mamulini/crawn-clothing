@@ -1,0 +1,37 @@
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+// const optionStyles = css`
+//   padding: 10px 15px;
+// `;
+
+export const HeaderContainer = styled.div`
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+`;
+
+export const LogoWrapper = styled(Link)`
+  height: 100%;
+  width: 70px;
+  padding: 25px;
+`;
+
+export const OptionContainer = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+`;
+
+export const OptionLink = styled(Link)`
+  padding: 10px 15px;
+`;
+
+// export const OptionDiv = styled.div`
+//   ${optionStyles}
+// `;

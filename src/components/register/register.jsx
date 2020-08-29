@@ -1,8 +1,10 @@
 import React from 'react';
+
 import FormInput from '../form-input/form-input';
 import CustomButton from '../custom-button/custom-button';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-import './register.styles.scss';
+import { RegisterContainer, Title, RegsterForm, Subtitle } from './register.styles';
+// import './register.styles.scss';
 
 class Register extends React.Component {
   constructor() {
@@ -51,10 +53,10 @@ class Register extends React.Component {
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
-      <div className="register">
-        <h2 className="title">I do not have an account</h2>
-        <span>Sign up with your email and password</span>
-        <form className="register-form" onSubmit={this.handleSubmit}>
+      <RegisterContainer>
+        <Title>I do not have an account</Title>
+        <Subtitle>Sign up with your email and password</Subtitle>
+        <RegsterForm onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
             name="displayName"
@@ -88,8 +90,8 @@ class Register extends React.Component {
             required
           />
           <CustomButton type="submit">SIGN UP</CustomButton>
-        </form>
-      </div>
+        </RegsterForm>
+      </RegisterContainer>
     );
   }
 }

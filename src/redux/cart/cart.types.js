@@ -1,4 +1,4 @@
-export const cartTypes = {
+export const cartActionTypes = {
   TOOGLE_CART: 'TOOGLE_CART',
   ADD_ITEMS: 'ADD_ITEMS',
   REMOVE_ITEMS_FROM_CART: 'REMOVE_ITEMS_FROM_CART',
