@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { selectCollection } from '../../redux/shop/shop.selectors';
 import CollectionItem from '../../components/collection-item/collection-item';
-import './collection.styles.scss';
+import './collection-page.styles.scss';
 
 const CollectionPage = ({ collection }) => {
   const { items, title } = collection;
