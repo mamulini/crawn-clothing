@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import FormInput from '../form-input/form-input';
 import CustomButton from '../custom-button/custom-button';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import { RegisterContainer, Title, RegsterForm, Subtitle } from './register.styles';
+import { registerStart } from '../../redux/user/user.actions';
 // import './register.styles.scss';
 
 class Register extends React.Component {
@@ -21,6 +23,7 @@ class Register extends React.Component {
   handleSubmit = async event => {
     event.preventDefault();
 
+    const { registerStart } = this.props;
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
@@ -28,20 +31,7 @@ class Register extends React.Component {
       return;
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-
-      await createUserProfileDocument(user, { displayName });
-
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    registerStart({ displayName, email, password });
   };
 
   handleChange = event => {
@@ -96,4 +86,12 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  registerStart: PropTypes.func
+};
+
+const mapDispatchToProps = dispatch => ({
+  registerStart: userCredentials => dispatch(registerStart(userCredentials))
+});
+
+export default connect(null, mapDispatchToProps)(Register);

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './cart-item.styles.scss';
 
 const CartItem = ({ cartItems }) => {
-  console.log(cartItems);
   return cartItems.length ? (
     cartItems.map(cartItem => (
       <div className="cart-item" key={cartItem.id}>
@@ -27,21 +26,3 @@ CartItem.propTypes = {
 };
 
 export default CartItem;
-
-// <div className="cart-items">
-//   {cartItems.length ? (
-//     cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)
-//   ) : (
-//     <div className="empty-message"> The cart is empty </div>
-//   )}
-// </div>
-
-// <div className="cart-item">
-//   <img src={imageUrl} alt="item" />
-//   <div className="item-details">
-//     <span className="name">{name}</span>
-//     <span className="price">
-//       {quantity} x ${price}
-//     </span>
-//   </div>
-// </div>
