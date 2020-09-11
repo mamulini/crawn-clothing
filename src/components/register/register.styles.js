@@ -10,6 +10,6 @@ export const Title = styled.h2`
   margin: 10px 0;
 `;
 
-export const RegsterForm = styled.form``;
+export const RegisterForm = styled.form``;
 
 export const Subtitle = styled.span``;
