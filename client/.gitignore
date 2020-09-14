@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 /.history
-/.vscode
 /.pnp
 .pnp.js
 
@@ -19,7 +18,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
-.env
 
 npm-debug.log*
 yarn-debug.log*
