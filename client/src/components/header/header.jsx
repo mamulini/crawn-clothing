@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -7,45 +7,64 @@ import { ReactComponent as Logo } from '../../assets/logo_crown.svg';
 
 import CartIcon from '../cart-icon/cart-icon';
 import CartDropdown from '../cart-dropdown/cart-dropdown';
-import { currentUserSelector } from '../../redux/user/user.selectors';
+import Navbar from '../navbar/navbar';
+import BurgerButton from '../burger-button/burger-button';
 import { hiddenSelector } from '../../redux/cart/cart.selectors';
-import { HeaderContainer, LogoWrapper, OptionContainer, OptionLink } from './header.styles';
-import { signOutStart } from '../../redux/user/user.actions';
+import { HeaderContainer, LogoWrapper } from './header.styles';
 
-const Header = ({ currentUser, hidden, signOutStart }) => (
-  <HeaderContainer>
-    <LogoWrapper to="/">
-      <Logo className="logo" />
-    </LogoWrapper>
-    <OptionContainer>
-      <OptionLink to="/shop">SHOP</OptionLink>
-      <OptionLink to="/shop">CONTACTS</OptionLink>
-      {currentUser ? (
-        <OptionLink as="div" onClick={signOutStart}>
-          SIGN OUT
-        </OptionLink>
+const Header = ({ hidden }) => {
+  const [open, setOpen] = useState(false);
+  const [isMobile, setMobile] = useState(window.innerWidth > 700);
+
+  const updateMedia = () => {
+    setMobile(window.innerWidth > 700);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateMedia);
+
+    return () => window.removeEventListener('resize', updateMedia);
+  });
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [open]);
+
+  return (
+    <HeaderContainer>
+      <LogoWrapper to="/">
+        <Logo className="logo" />
+      </LogoWrapper>
+
+      {isMobile ? (
+        <>
+          <Navbar open={open} setOpen={setOpen} />
+          <CartIcon open={open} />
+        </>
       ) : (
-        <OptionLink to="/signin">SIGN IN</OptionLink>
+        <>
+          <BurgerButton open={open} setOpen={setOpen} />
+          <Navbar open={open} setOpen={setOpen}>
+            <CartIcon open={open} />
+          </Navbar>
+        </>
       )}
-      <CartIcon onClick={() => this.props.toogleCart()} />
-    </OptionContainer>
-    {hidden ? null : <CartDropdown />}
-  </HeaderContainer>
-);
+
+      {hidden ? null : <CartDropdown />}
+    </HeaderContainer>
+  );
+};
 
 Header.propTypes = {
-  currentUser: PropTypes.object,
-  hidden: PropTypes.bool,
-  signOutStart: PropTypes.func
+  hidden: PropTypes.bool
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: currentUserSelector,
   hidden: hiddenSelector
 });
 
-const mapDispatchToProps = dispatch => ({
-  signOutStart: () => dispatch(signOutStart())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

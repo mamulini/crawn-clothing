@@ -27,10 +27,12 @@ const invertedStyles = css`
 const googleSigninStyles = css`
   background-color: #4285f4;
   color: white;
+  border: none;
 
   &:hover {
-    background-color: #357ae8;
-    border: none;
+    background-color: #fff;
+    color: #4285f4;
+    border: 1px solid #000;
   }
 `;
 
@@ -41,19 +43,24 @@ const getButtonStyles = props => {
 };
 
 export const CustomButtonContainer = styled.button`
-  min-width: 135px;
+  min-width: 100px;
   width: auto;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
-  padding: 0 25px 0 25px;
-  font-size: 15px;
+  padding: 0 15px 0 15px;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed';
   font-weight: bolder;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  border-radius: 5px;
 
   ${getButtonStyles}
+
+  @media screen and (max-width: 430px) {
+    padding: 0 10px 0 10px;
+    font-size: 12px;
+    min-width: auto;
+  }
 `;

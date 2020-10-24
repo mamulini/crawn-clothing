@@ -1,8 +1,7 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import PropTypes from 'prop-types';
-import axios from 'axios'
-import './stripe-button.styles.scss';
+import axios from 'axios';
 
 const StripeButton = ({ price }) => {
   const stripeKey =
@@ -18,12 +17,16 @@ const StripeButton = ({ price }) => {
         amount: stripePrice,
         token
       }
-    }).then( response => {
-      alert('Payment successful')
-    }).catch(error => {
-      console.log('Payment error: ',JSON.parse(error));
-      alert('There was an issue with your payment. Please make sure you are using the provided credit card')
     })
+      .then(response => {
+        alert('Payment successful');
+      })
+      .catch(error => {
+        console.log('Payment error: ', JSON.parse(error));
+        alert(
+          'There was an issue with your payment. Please make sure you are using the provided credit card'
+        );
+      });
   };
 
   return (

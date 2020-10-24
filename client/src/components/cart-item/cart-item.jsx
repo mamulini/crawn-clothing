@@ -1,23 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './cart-item.styles.scss';
+import {
+  CartItemContainer,
+  CartItemDetails,
+  CartItemEmpty,
+  CartItemName,
+  CartItemPrice
+} from './cart-item.style';
 
 const CartItem = ({ cartItems }) => {
   return cartItems.length ? (
     cartItems.map(cartItem => (
-      <div className="cart-item" key={cartItem.id}>
+      <CartItemContainer key={cartItem.id}>
         <img src={cartItem.imageUrl} alt="item" />
-        <div className="item-details">
-          <span className="name">{cartItem.name}</span>
-          <span className="price">
+        <CartItemDetails>
+          <CartItemName>{cartItem.name}</CartItemName>
+          <CartItemPrice>
             {cartItem.quantity} x ${cartItem.price}
-          </span>
-        </div>
-      </div>
+          </CartItemPrice>
+        </CartItemDetails>
+      </CartItemContainer>
     ))
   ) : (
-    <div className="empty-message"> The cart is empty </div>
+    <CartItemEmpty> The cart is empty </CartItemEmpty>
   );
 };
 

@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const RegisterContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 380px;
+  max-width: 400px;
+  padding: 10px;
+
+  @media screen and (max-width: 900px) {
+    margin-top: 20px;
+  }
 `;
 
 export const Title = styled.h2`

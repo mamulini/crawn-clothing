@@ -34,7 +34,7 @@ export const GroupContainer = styled.div`
 
 export const Input = styled.input`
   background: none;
-  background-color: white;
+  background-color: transparent;
   color: gray;
   font-size: 18px;
   padding: 10px 10px 10px 5px;

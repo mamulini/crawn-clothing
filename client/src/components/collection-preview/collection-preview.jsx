@@ -3,21 +3,25 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import CollectionItem from '../collection-item/collection-item';
-import './collection-preview.styles.scss';
+import {
+  CollectionItemsContainer,
+  CollectionPreviewContainer,
+  PreviewTitle
+} from './collection-preview.style';
 
 const CollectionPreview = ({ title, items, history, match }) => (
-  <div className="collection-preview">
-    <h1 className="title" onClick={() => history.push(`${match.url}/${title.toLowerCase()}`)}>
+  <CollectionPreviewContainer>
+    <PreviewTitle onClick={() => history.push(`${match.url}/${title.toLowerCase()}`)}>
       {title.toUpperCase()}
-    </h1>
-    <div className="preview">
+    </PreviewTitle>
+    <CollectionItemsContainer>
       {items
         .filter((item, i) => i < 4)
         .map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
-    </div>
-  </div>
+    </CollectionItemsContainer>
+  </CollectionPreviewContainer>
 );
 
 CollectionPreview.propTypes = {

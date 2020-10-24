@@ -4,19 +4,23 @@ import PropTypes from 'prop-types';
 
 import { selectCollection } from '../../redux/shop/shop.selectors';
 import CollectionItem from '../../components/collection-item/collection-item';
-import './collection-page.styles.scss';
+import {
+  CollectionPageContainer,
+  CollectionPageItems,
+  CollectionPageTitle
+} from './collection-page.style';
 
 const CollectionPage = ({ collection }) => {
   const { items, title } = collection;
   return (
-    <div className="collection-page">
-      <h2 className="title">{title}</h2>
-      <div className="items">
+    <CollectionPageContainer>
+      <CollectionPageTitle>{title}</CollectionPageTitle>
+      <CollectionPageItems>
         {items.map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
-      </div>
-    </div>
+      </CollectionPageItems>
+    </CollectionPageContainer>
   );
 };
 

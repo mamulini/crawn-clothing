@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GroupContainer, Input, InputLabel } from './form-input.styles';
-// import './form-input.styles.scss';
 
 const FormInput = ({ handleChange, label, ...otherProps }) => (
   <GroupContainer>

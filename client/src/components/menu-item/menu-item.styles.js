@@ -18,6 +18,11 @@ export const ContentContainer = styled.div`
   background: #ffffff;
   opacity: 0.7;
   position: absolute;
+
+  @media screen and (max-width: 700px) {
+    padding: 0 10px;
+    height: 70px;
+  }
 `;
 
 export const MenuItemContainer = styled.div`
@@ -31,11 +36,13 @@ export const MenuItemContainer = styled.div`
   margin: 0 7.5px 15px;
   overflow: hidden;
 
-  ${props =>
+  @media screen and (min-width: 700px) {
+    ${props =>
     props.large &&
     css`
-      height: 40vh;
-    `}
+        height: 40vh;
+      `}
+  }
 
   &:hover {
     cursor: pointer;
@@ -56,9 +63,17 @@ export const Title = styled.h1`
   margin-bottom: 6px;
   font-size: 22px;
   color: #4a4a4a;
+
+  @media screen and (max-width: 700px) {
+    font-size: 18px;
+  }
 `;
 
 export const Subtitle = styled.span`
   font-weight: lighter;
   font-size: 16px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+  }
 `;

@@ -5,14 +5,15 @@ import PropTypes from 'prop-types';
 
 import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors';
 import CollectionPreview from '../collection-preview/collection-preview';
-import './collection-overview.styles.scss';
+import { StyledCollectionsOverview } from './collection-overview.style';
+// import './collection-overview.styles.scss';
 
 const CollectionOverview = ({ collections }) => (
-  <div className="collection-overview">
+  <StyledCollectionsOverview>
     {collections.map(({ id, ...otherCollectionsProps }) => (
       <CollectionPreview key={id} {...otherCollectionsProps} />
     ))}
-  </div>
+  </StyledCollectionsOverview>
 );
 
 CollectionOverview.propTypes = {
