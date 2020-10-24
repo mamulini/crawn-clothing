@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { fetchCollectionsStart } from '../../redux/shop/shop.actions';
-import './shop.styles.scss';
 
 import CollectionOverviewContainer from '../../components/collection-overview/collection-overview.container';
 import CollectionPageContainer from '../collection-page/collection-page.container';
@@ -15,7 +14,7 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
   }, [fetchCollectionsStart]);
 
   return (
-    <div className="shop-page">
+    <div>
       <Route exact path={`${match.path}`} component={CollectionOverviewContainer} />
       <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer} />
     </div>

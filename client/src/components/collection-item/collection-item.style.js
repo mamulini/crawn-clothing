@@ -95,18 +95,12 @@ export const Price = styled.strong`
   margin: 0;
   font-size: 22px;
   padding-top: 5px;
-
-  /* @media screen and (max-width: 500px) {
-    font-size: 14px;
-    padding-top: 5px;
-  } */
 `;
 
 export const AddButton = styled.div`
   width: calc(30% - 2px);
   height: 100%;
   background: #ffffff;
-  /* background: #f1f1f1; */
   transition: background 0.5s;
   border-left: solid thin rgba(0, 0, 0, 0.1);
   cursor: pointer;

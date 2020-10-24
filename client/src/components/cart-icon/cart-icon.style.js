@@ -20,7 +20,6 @@ export const StyledShopingIcon = styled(ShoppingIcon)`
   @media screen and (max-width: 700px) {
     path {
       fill: #ffffff !important;
-      /* fill: ${({ open }) => (open ? '#ffffff !important' : 'red !important')}; */
     }
   }
 `;

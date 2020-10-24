@@ -16,7 +16,6 @@ export const NavbarContainer = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     background: #000000;
-    /* transform: translate(-50%, -50%); */
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     width: 70%;
     height: 100vh;
@@ -38,18 +37,3 @@ export const NavbarLink = styled(Link)`
     color: #ffffff;
   }
 `;
-
-// opacity: 0;
-//     padding: 35px 0 0 20px;
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     position: fixed;
-//     color: #ffffff;
-//     top: 0;
-//     left: 40%;
-//     bottom: 0;
-//     right: 0;
-//     z-index: 5;
-//     transform: translateX(100%);
-//     transition: all 500ms cubic-bezier(0.5, 0, 0.5, 1);
-//     background: #000000;
