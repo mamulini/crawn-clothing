@@ -29,9 +29,9 @@ const Navbar = ({ currentUser, signOutStart, open, setOpen, children }) => {
       <NavbarLink to="/shop" onClick={() => setOpen(false)}>
         SHOP
       </NavbarLink>
-      <NavbarLink to="/" onClick={() => setOpen(false)}>
+      {/* <NavbarLink to="/" onClick={() => setOpen(false)}>
         CONTACTS
-      </NavbarLink>
+      </NavbarLink> */}
       {currentUser ? (
         <NavbarLink as="div" onClick={signOutStart}>
           SIGN OUT
